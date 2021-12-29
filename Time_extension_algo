@@ -1,0 +1,32 @@
+#include <stdio.h>
+#define LOWER_THRESHOLD 5
+#define UPPER_THRESHOLD 8 
+#define ACTIVE_TIME 2
+#define HARD_DEAD_LINE 30
+
+int main()
+{
+	int current_time = ACTIVE_TIME;
+	int current_threshold = IDS(); // IDS function gives the variation of logged data over its trained data
+	if(current_threshold < LOWER_THRESHOLD)
+	{
+		// end IDS on it and go to next node in queue
+	}
+	else if(current_threshold >= LOWER_THRESHOLD && current_threshold < UPPER_THRESHOLD)
+	{
+		//  current_time = 2*current_time
+		if(current_time > HARD_DEAD_LINE)
+		{
+			// generate alarm and end IDS. Go to next node in queue
+		}
+		else
+		{
+			// rerun IDS on the same node
+		}
+	}
+	else
+	{
+		//end IDS on this node and generate alarm. Go to next node in queue
+	}
+
+}
